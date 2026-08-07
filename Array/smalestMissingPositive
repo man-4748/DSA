@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+//WAP to find the smallest missing positive element in the sorted Array that contains only positive elements.
+int checkMissingNumber(int arr[],int n){
+    
+    int x = 1;
+    for(int i=0;i<n;i++){
+        if(arr[i]==x){
+            x++;
+            continue;
+        }else return x;
+    }
+    // if array is exhausted  arr[] = {1,2,3,4,5}
+    // every element is present --> i = 4 x = 5 --> check arr[i] == x ---> x++ ==> x = 6
+    // ans --> return x = 6
+    return x;
+}
+int main(){
+    int arr[] = {1,2,3,4,5}; 
+    int n = sizeof(arr)/sizeof(arr[0]);
+    cout<<checkMissingNumber(arr,n);
+
+    /*
+        Alternative:
+        int x = 1;
+        bool flag=false;
+        for(int i=0;i<n;i++){
+            if(arr[i]!= x){
+            cout<<x<<endl;
+            flag=true;
+            break;
+        }
+        else x++;
+        }
+        if(flag==false) cout<<x<<endl;
+    */
+}
